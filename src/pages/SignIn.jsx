@@ -6,14 +6,17 @@ function SignIn() {
 
     const [showPassword, setShowPassword] = useState(false)
     const [formData, setFormData] = useState({
-        email:'nn',
-        password:'nnt',
+        email:'',
+        password:'',
     })
     
     const {email, password } = formData
-    console.log(formData)
 
-    const handleInputChange = () =>  {
+
+    const handleInputChange = (e) =>  {
+        setFormData( (prevState) => {
+          return {...prevState, [e.target.id]: e.target.value}
+        })
 
     }
 
