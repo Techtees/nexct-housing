@@ -5,10 +5,11 @@ import Explore from './pages/Explore'
 import ForgotPassword from './pages/ForgotPassword'
 import SignIn from './pages/SignIn'
 import Offers from './pages/Offers'
-import Signup from './pages/Signup'
 import Profile from './pages/Profile'
 import SignUp from './pages/Signup'
 import Navbar from './components/Navbar'
+
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   return (
@@ -19,7 +20,9 @@ function App() {
           <Route path='/offers' element={<Offers />} />
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/sign-up' element={<SignUp />} />
-          <Route path='/profile' element={<Profile/>} />
+          <Route path='/profile' element = {<PrivateRoute />} >
+              <Route path='/profile' element={<Profile/>} />
+          </Route>
           <Route path='/forgot-password' element={<ForgotPassword />} />
         </Routes>
         <Navbar />
